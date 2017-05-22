@@ -9,7 +9,7 @@ These are the basic specs for “Hello, Web Servers”, broken into 5 stages. If
 
 Setup the repo and file structure, install and configure Express, and get a basic server running.
 
--[ ]Repo (your artifact) is created on GitHub
+-[ ] Repo (your artifact) is created on GitHub
  Repo follows a conventional file structure for an Express.js app:
  package.json: standard for any Node.js app; includes package info and lists dependencies
  server.js: your Express server, with all routes defined
