@@ -1,0 +1,18 @@
+<%- include('../shared/header', {'pageTitle' : 'Home'}); %>
+<h3 class="white-text">Artists</h3>
+<div class="divider"></div>
+<div class="row"></div>
+<% artists.forEach(function(artist){%>
+<div class="row">
+    <div class="col">
+        <a href="/albums/<%= artist.id %>">
+            <img class="about-pic" src="http://placehold.it/120x120">
+        </a>
+    </div>
+    <div class="col">
+        <h3 class="about-author"> <%= artist.name %></h3>
+        <p class="grey-text"><%= artist.genre %></p>
+    </div>
+</div>
+<%})%>
+<% include ../shared/footer %>

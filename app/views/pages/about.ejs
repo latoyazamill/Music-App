@@ -1,0 +1,17 @@
+<%- include('../shared/header', {'pageTitle' : 'About'}); %>
+<h3 class="white-text">About</h3>
+<div class="divider"></div>
+<p class="white-text">This music player app was developed by:</p>
+<% authors.forEach(function(author){%>
+    <div class="row">
+        <div class="col">
+            <a href="<%= author.github %>">
+                <img class="about-pic" src="<%= author.githubPhoto %>">
+            </a>
+        </div>
+        <div class="col">
+            <a class="white-text text-lighten-3" href="<%= author.github %>"><h5 class="about-author"> <%= author.name %></h5></a>
+        </div>
+    </div>
+<%})%>
+<% include ../shared/footer %>
