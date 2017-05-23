@@ -6,7 +6,7 @@ Artist = function() {
   this.artists = [];
 }
 
-Artist.prototype.getArtist = function(id)
+Artist.prototype.get = function(id)
 {
   if (!id) {return false;}
   return this.artists[id];
@@ -24,6 +24,6 @@ Artist.prototype.loadAll = function(callback)
       callback(data);
     }
   })
-}
+};
 
 module.exports = Artist;
