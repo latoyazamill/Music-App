@@ -1,0 +1,10 @@
+.about-pic {
+    width: 125px;
+    height: 125px;
+    margin-right: 10px;
+    border: 1px solid #CCCCCC;
+}
+
+.about-author {
+    margin-bottom: 10px;
+}
