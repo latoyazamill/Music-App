@@ -14,7 +14,6 @@ Artist.prototype.getArtist = function(id)
 
 Artist.prototype.loadAll = function(callback)
 {
-  console.log("Reading files...")
   fs.readFile('db/artists.json', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
