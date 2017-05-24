@@ -49,3 +49,5 @@ fabric.properties
 aback-kingfisher-music-app.iml
 !/.gitignore
 
+app/node_modules
+
