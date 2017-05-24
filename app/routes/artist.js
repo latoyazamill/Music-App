@@ -5,15 +5,20 @@ var router = express.Router();
 console.log("Artists")
 router.get('/', function(req, res) {
 
-  var artist = new Artist();
+  var album = new Album();
 
-  var callback = function(data)
+  var callback = function()
   {
-    console.log("Artist data in callback", data, typeof data);
-    res.render('pages/index', {artists: JSON.parse(data)});
-  }
-  artist.loadAll(callback);
+    var artistWithCount = artist.artists.map(function(singleArtist) {
+      singleArtist.albumCount = album.countAlbums(singleArtist.id);
+      return singleArtist;
+    });
 
+    console.log("artistWithCount", artistWithCount)
+
+    res.render('pages/artist', {artists: artistWithCount});
+  }
+  var artist = new Artist(callback);
 
 });
 

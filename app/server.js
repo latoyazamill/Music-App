@@ -3,6 +3,8 @@ var app = express();
 
 // load models
 require('./model/artist');
+require('./model/album');
+require('./model/song');
 
 // set view engine
 app.set('view engine', 'ejs');
