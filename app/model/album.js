@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
-var fs =requires('fs');
+var fs =require('fs');
 
 Album = function() {
-  this.albums =[];
+  this.albums = [];
+  this.loadAll();
 }
 
 Album.prototype.get =function(id) {
@@ -11,14 +12,30 @@ Album.prototype.get =function(id) {
   return this.albums[id];
 }
 
+Album.prototype.countAlbums = function(id)
+{
+  console.log(this.albums)
+  var count = 0;
+  this.albums.map(function(val) {
+   if (val.artist_id == id)
+   {
+      count++;
+   }
+  })
+  return count;
+}
+
 Album.prototype.loadAll = function(callback) {
-  console.log("Reading files...")
-  fs.readFile('db/ablums.json', 'utf8', function (err, data){
+  var _this = this;
+  console.log("Reading album files...")
+  fs.readFile('db/albums.json', 'utf8', function (err, data){
     if (err) {
       return console.log(err);
     }
-    if (data && typeof callback == 'function'){
-      callback(data);
+    try {
+      _this.albums = JSON.parse(data);
+    } catch (e) {
+      _this.albums = [];
     }
   })
 };

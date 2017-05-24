@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
-var fs =requires('fs');
+var fs =require('fs');
 
 Song = function() {
-  this.songs =[];
+ this.songs = [];
+ this.loadAll();
 }
 
 Song.prototype.get =function(id) {
@@ -12,13 +13,16 @@ Song.prototype.get =function(id) {
 }
 
 Song.prototype.loadAll = function(callback) {
-  console.log("Reading files...")
+  var _this = this;
+  console.log("Reading song files...")
   fs.readFile('db/songs.json', 'utf8', function (err, data){
     if (err) {
       return console.log(err);
     }
-    if (data && typeof callback == 'function'){
-      callback(data);
+    try {
+      _this.songs = JSON.parse(data);
+    } catch (e) {
+      _this.songs = [];
     }
   })
 };

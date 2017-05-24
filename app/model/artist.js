@@ -2,8 +2,9 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
-Artist = function() {
+Artist = function(callback) {
   this.artists = [];
+  this.loadAll(callback);
 }
 
 Artist.prototype.get = function(id)
@@ -12,17 +13,29 @@ Artist.prototype.get = function(id)
   return this.artists[id];
 }
 
+Artist.prototype.saveData = function(data)
+{
+  if (data)
+  {
+    this.artists = data;
+  }
+}
+
 Artist.prototype.loadAll = function(callback)
 {
-  console.log("Reading files...")
+  var _this = this;
+
+  console.log("Reading artist files...")
   fs.readFile('db/artists.json', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
     }
-    if (data && typeof callback == 'function')
-    {
-      callback(data);
+    try {
+      _this.artists = JSON.parse(data);
+    } catch (e) {
+      _this.artists = [];
     }
+    callback();
   })
 };
 
