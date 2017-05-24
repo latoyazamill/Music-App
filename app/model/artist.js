@@ -43,4 +43,6 @@ class Artist  {
   };
 }
 
-module.exports = Artist;
+module.exports = function (artist, album) {
+  return new Artist();
+}

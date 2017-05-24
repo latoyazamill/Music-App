@@ -61,4 +61,6 @@ class Album {
   };
 }
 
-module.exports = Album;
+module.exports = function (album, song) {
+  return new Album();
+}

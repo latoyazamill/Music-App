@@ -1,10 +1,18 @@
 var express = require('express');
 var app = express();
 
-// load models
-var artist = require('./model/artist');
-var album = require('./model/album');
-var song = require('./model/song');
+// load models and load data
+var Artist = require('./model/artist');
+var artist = new Artist();
+artist.loadAll();
+
+var Album = require('./model/album');
+var album = new Album();
+album.loadAll();
+
+var Song = require('./model/song');
+var song = new Song();
+song.loadAll();
 
 console.log(artist)
 
@@ -24,7 +32,7 @@ app.get('/', function(req, res) {
 var about = require('./routes/about');
 app.use('/about', about);
 
-var artist = require('./routes/artist');
+var artist = require('./routes/artist')(artist, album, song);
 app.use('/', artist);
 
 // setup static files
