@@ -46,8 +46,7 @@ fabric.properties
 
 
 .idea/
-aback-kingfisher-music-app.iml
+*.iml
 !/.gitignore
-
 app/node_modules
 

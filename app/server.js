@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 
 // load models
-require('./model/artist');
-require('./model/album');
-require('./model/song');
+var artist = require('./model/artist');
+var album = require('./model/album');
+var song = require('./model/song');
+
+console.log(artist)
 
 // set view engine
 app.set('view engine', 'ejs');

@@ -2,41 +2,45 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
-Artist = function(callback) {
-  this.artists = [];
-  this.loadAll(callback);
-}
+class Artist  {
 
-Artist.prototype.get = function(id)
-{
-  if (!id) {return false;}
-  return this.artists[id];
-}
-
-Artist.prototype.saveData = function(data)
-{
-  if (data)
-  {
-    this.artists = data;
+  constructor() {
+    this.constructor.artists = [];
+    this.constructor.loaded = false;
   }
-}
 
-Artist.prototype.loadAll = function(callback)
-{
-  var _this = this;
+  get isLoaded() {
+    return this.constructor.loaded;
+  }
 
-  console.log("Reading artist files...")
-  fs.readFile('db/artists.json', 'utf8', function (err, data) {
-    if (err) {
-      return console.log(err);
-    }
+  get getAll() {
+    return this.constructor.artists;
+  }
+
+  getOne() {
+    if (!id) {return false;}
+    return this.constructor.artists[id];
+  }
+
+  saveArtists(artists)
+  {
     try {
-      _this.artists = JSON.parse(data);
+      this.constructor.artists = JSON.parse(artists);
     } catch (e) {
-      _this.artists = [];
+      this.constructor.artists = [];
     }
-    callback();
-  })
-};
+    this.constructor.loaded = true;
+  }
+
+  loadAll(callback) {
+    var _this = this;
+    fs.readFile('db/artists.json', 'utf8', function (err, data) {
+      if (err) {
+        return console.log(err);
+      }
+      _this.saveArtists(data);
+    })
+  };
+}
 
 module.exports = Artist;

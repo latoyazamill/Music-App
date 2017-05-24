@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "D'Angelo", "genre": "Neo-Soul" },
+  { "id": 1, "name": "D'Angelo", "genre": "Neo-Soul" , "image" : "https://wljdxzbhkjsdkj"},
   { "id": 2, "name": "Horse Feathers", "genre": "Folk" },
   { "id": 3, "name": "Lauryn Hill", "genre": "Hip Hop" },
   { "id": 4, "name": "M.I.A.", "genre": "Hip Hop" },

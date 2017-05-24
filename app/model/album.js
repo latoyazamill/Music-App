@@ -2,42 +2,63 @@ var express = require('express');
 var app = express();
 var fs =require('fs');
 
-Album = function() {
-  this.albums = [];
-  this.loadAll();
-}
+class Album {
+  constructor () {
+    this.constructor.albums = [];
+    this.constructor.loaded = false;
+  }
 
-Album.prototype.get =function(id) {
-  if (!id) {return false;}
-  return this.albums[id];
-}
+  get isLoaded() {
+    return this.constructor.loaded;
+  }
 
-Album.prototype.countAlbums = function(id)
-{
-  console.log(this.albums)
-  var count = 0;
-  this.albums.map(function(val) {
-   if (val.artist_id == id)
-   {
-      count++;
-   }
-  })
-  return count;
-}
+  getAlbum(id) {
+    if (!id) {return false;}
+    return this.constructor.albums[id];
+  }
 
-Album.prototype.loadAll = function(callback) {
-  var _this = this;
-  console.log("Reading album files...")
-  fs.readFile('db/albums.json', 'utf8', function (err, data){
-    if (err) {
-      return console.log(err);
-    }
+  getAlbumCount(artistId)
+  {
+    var count = 0;
+    console.log(this.constructor.albums)
+    this.constructor.albums.map(function(album) {
+      if (album.artist_id == artistId)
+      {
+        count++;
+      }
+    })
+    return count;
+  }
+
+  getAlbums(artistId) {
+    var albumList = [];
+    this.constructor.albums.map(function(album) {
+      if (album.artist_id == artistId)
+      {
+        albumList.push(album)
+      }
+    })
+    return albumList;
+  }
+
+  saveAlbums(albums) {
     try {
-      _this.albums = JSON.parse(data);
+      this.constructor.albums = JSON.parse(albums);
     } catch (e) {
-      _this.albums = [];
+      this.constructor.albums = [];
     }
-  })
-};
+    this.constructor.loaded = true;
+  }
+
+  loadAll(callback) {
+    var _this = this;
+    fs.readFile('db/albums.json', 'utf8', function (err, albums){
+      if (err) {
+        return console.log(err);
+      }
+      _this.saveAlbums(albums);
+    })
+  };
+}
 
 module.exports = Album;

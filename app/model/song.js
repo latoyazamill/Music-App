@@ -2,29 +2,63 @@ var express = require('express');
 var app = express();
 var fs =require('fs');
 
-Song = function() {
- this.songs = [];
- this.loadAll();
-}
+class Song {
 
-Song.prototype.get =function(id) {
-  if (!id) {return false;}
-  return this.songs[id];
-}
+  constructor() {
+    this.constructor.songs = [];
+    this.constructor.loaded = false;
+  }
 
-Song.prototype.loadAll = function(callback) {
-  var _this = this;
-  console.log("Reading song files...")
-  fs.readFile('db/songs.json', 'utf8', function (err, data){
-    if (err) {
-      return console.log(err);
-    }
+  get isLoaded(){
+    return this.constructor.loaded;
+  }
+
+  getOne(id) {
+    if (!id) {return false;}
+    return this.songs[id];
+  }
+
+  setSongCount(albumId)
+  {
+    var count = 0;
+    this.constructor.songs.map(function(song) {
+      if (song.album_id == albumId)
+      {
+        count++;
+      }
+    })
+    return count;
+  }
+
+  getSongs(albumId) {
+    var songList = [];
+    this.constructor.songs.map(function(song) {
+      if (song.album_id == albumId)
+      {
+        songList.push(album)
+      }
+    })
+    return songList;
+  }
+
+  saveSongs(songs) {
     try {
-      _this.songs = JSON.parse(data);
+      this.constructor.songs = JSON.parse(songs);
     } catch (e) {
-      _this.songs = [];
+      this.constructor.songs = [];
     }
-  })
-};
+    this.constructor.loaded = true;
+  }
+
+  loadAll() {
+    var _this = this;
+    fs.readFile('db/songs.json', 'utf8', function (err, songs){
+      if (err) {
+        return console.log(err);
+      }
+      _this.saveSongs(songs);
+    })
+  };
+}
 
 module.exports = Song;
