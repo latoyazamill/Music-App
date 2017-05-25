@@ -1,16 +1,16 @@
-<%- include('../shared/header', {'pageTitle' : 'Artists'}); %>
+<%- include('shared/header', {'pageTitle' : 'Artists'}); %>
   <h1 class="white-text">Artists</h1>
   <div class="divider"></div>
   <div class="row"></div>
   <% artists.forEach(function(artist){%>
     <div class="row">
       <div class="col s12 m2 l2">
-        <img class="circle" src="<%= artist.image %>" alt="">
+        <img class="circle artist-image" src="<%= artist.image %>" >
       </div>
 
       <div class="col s12 m8 l8">
         <p>
-          <a href="/artist/<%= artist.id %>">
+          <a class="white-text" href="/artist/<%= artist.id %>">
             <%= artist.name %>
           </a>
         </p>
@@ -28,4 +28,4 @@
 
     </div>
     <%})%>
-      <% include ../shared/footer %>
+      <% include shared/footer %>
