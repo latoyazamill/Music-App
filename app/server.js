@@ -14,19 +14,8 @@ var Song = require('./model/song');
 var song = new Song();
 song.loadAll();
 
-console.log(artist)
-
 // set view engine
 app.set('view engine', 'ejs');
-
-// Use res.render to load up an ejs view file
-
-// index
-/*
-app.get('/', function(req, res) {
-  res.render('pages/index');
-});
-*/
 
 // define routes
 var about = require('./routes/about');

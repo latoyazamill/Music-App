@@ -13,7 +13,6 @@ class Album {
 
   getAlbums(artistId) {
     var albumList = [];
-    console.log("getAlbums", this.constructor.albums)
     this.constructor.albums.map(function(album) {
       if (album.artist_id == artistId || typeof artistId == 'undefined')
       {
@@ -30,7 +29,6 @@ class Album {
 
   getAlbumCount(artistId)
   {
-    console.log("getAlbums", this.constructor.albums)
     var count = 0;
     this.constructor.albums.map(function(album) {
       if (album.artist_id == artistId)
@@ -42,13 +40,11 @@ class Album {
   }
 
   saveAlbums(albums) {
-    console.log("saveAlbums", albums)
     try {
       this.constructor.albums = JSON.parse(albums);
     } catch (e) {
       this.constructor.albums = [];
     }
-    console.log("saveAlbums.after", this.constructor.albums)
     this.constructor.loaded = true;
   }
 
@@ -58,7 +54,6 @@ class Album {
       if (err) {
         return console.log(err);
       }
-      console.log(albums)
       _this.saveAlbums(albums);
     })
   };

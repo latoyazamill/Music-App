@@ -17,7 +17,9 @@ module.exports = function(artist, album, song) {
           singleAlbum.songCount = song.getSongCount(singleAlbum.id);
           return singleAlbum;
         });
-        res.render('artistInfo', {artist: thisArtist, artistAlbums: modAlbums});
+        var yellow = Math.floor((Math.random() * 5) + 1);
+        var grey = 5 - yellow;
+        res.render('artistInfo', {artist: thisArtist, artistAlbums: modAlbums,  yellow: yellow, grey: grey});
       }
     }, 100);
 
