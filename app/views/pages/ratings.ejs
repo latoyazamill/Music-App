@@ -1,0 +1,10 @@
+<%- include('../shared/header', {'pageTitle' : 'Ratings'}); %>
+
+<div class="col s12 m2 l2">
+  <% for (var i=1; i <= rating ; i++) { %>
+      <i class="fa fa-star yellow-text" aria-hidden="true"></i>
+      <% } %>
+  <% for (var i=1; i <= grey ; i++) { %>
+      <i class="fa fa-star grey-text" aria-hidden="true"></i>
+      <% } %>
+</div>
