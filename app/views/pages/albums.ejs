@@ -5,11 +5,11 @@
   <% albums.forEach(function(albums){%>
 <div class="row">
   <div class="col s12 m2 l2">
-    <img class-"circle" scr="http://placehold.it/110x110" alt"">
+    <img class-"circle" scr="<%= album.image %>" alt"">
   </div>
 
   <div class="col s12 m8 l8">
-    <p><a href="/albums/<%= albums.id%>">
+    <p><a href="/albums/<%= album.id %>">
     <%= album.title %>
       </a>
       </p>
