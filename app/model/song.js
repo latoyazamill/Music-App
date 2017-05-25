@@ -1,5 +1,3 @@
-var express = require('express');
-var app = express();
 var fs =require('fs');
 
 class Song {
@@ -13,12 +11,23 @@ class Song {
     return this.constructor.loaded;
   }
 
-  getOne(id) {
-    if (!id) {return false;}
-    return this.songs[id];
+  getSongs(albumId) {
+    var songList = [];
+    this.constructor.songs.map(function(song) {
+      if (song.album_id == albumId || typeof albumId == 'undefined')
+      {
+        songList.push(song);
+      }
+    })
+    return songList;
   }
 
-  setSongCount(albumId)
+  getSong(id) {
+    if (!id) {return false;}
+    return this.songs[(id-1)];
+  }
+
+  getSongCount(albumId)
   {
     var count = 0;
     this.constructor.songs.map(function(song) {
@@ -28,17 +37,6 @@ class Song {
       }
     })
     return count;
-  }
-
-  getSongs(albumId) {
-    var songList = [];
-    this.constructor.songs.map(function(song) {
-      if (song.album_id == albumId)
-      {
-        songList.push(album)
-      }
-    })
-    return songList;
   }
 
   saveSongs(songs) {

@@ -32,8 +32,20 @@ app.get('/', function(req, res) {
 var about = require('./routes/about');
 app.use('/about', about);
 
-var artist = require('./routes/artist')(artist, album, song);
-app.use('/', artist);
+var artists = require('./routes/artists')(artist, album, song);
+app.use('/', artists);
+
+var albums = require('./routes/albums')(artist, album, song);
+app.use('/albums', albums);
+
+var songs = require('./routes/songs')(artist, album, song);
+app.use('/songs', songs);
+
+var info = require('./routes/artistInfo')(artist, album, song);
+app.use('/artist', info);
+
+var albumInfo = require('./routes/albumInfo')(artist, album, song);
+app.use('/album', albumInfo);
 
 // setup static files
 app.use(express.static('public'))

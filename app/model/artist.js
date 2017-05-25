@@ -1,5 +1,3 @@
-var express = require('express');
-var app = express();
 var fs = require('fs');
 
 class Artist  {
@@ -13,13 +11,13 @@ class Artist  {
     return this.constructor.loaded;
   }
 
-  get getAll() {
+  getArtists() {
     return this.constructor.artists;
   }
 
-  getOne() {
+  getArtist(id) {
     if (!id) {return false;}
-    return this.constructor.artists[id];
+    return this.constructor.artists[(id-1)];
   }
 
   saveArtists(artists)
@@ -43,6 +41,4 @@ class Artist  {
   };
 }
 
-module.exports = function (artist, album) {
-  return new Artist();
-}
+module.exports = Artist;

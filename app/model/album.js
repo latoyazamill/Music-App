@@ -1,9 +1,8 @@
-var express = require('express');
-var app = express();
-var fs =require('fs');
+var fs = require('fs');
 
 class Album {
-  constructor () {
+
+  constructor() {
     this.constructor.albums = [];
     this.constructor.loaded = false;
   }
@@ -12,15 +11,27 @@ class Album {
     return this.constructor.loaded;
   }
 
+  getAlbums(artistId) {
+    var albumList = [];
+    console.log("getAlbums", this.constructor.albums)
+    this.constructor.albums.map(function(album) {
+      if (album.artist_id == artistId || typeof artistId == 'undefined')
+      {
+        albumList.push(album)
+      }
+    })
+    return albumList;
+  }
+
   getAlbum(id) {
     if (!id) {return false;}
-    return this.constructor.albums[id];
+    return this.constructor.albums[(id-1)];
   }
 
   getAlbumCount(artistId)
   {
+    console.log("getAlbums", this.constructor.albums)
     var count = 0;
-    console.log(this.constructor.albums)
     this.constructor.albums.map(function(album) {
       if (album.artist_id == artistId)
       {
@@ -30,23 +41,14 @@ class Album {
     return count;
   }
 
-  getAlbums(artistId) {
-    var albumList = [];
-    this.constructor.albums.map(function(album) {
-      if (album.artist_id == artistId)
-      {
-        albumList.push(album)
-      }
-    })
-    return albumList;
-  }
-
   saveAlbums(albums) {
+    console.log("saveAlbums", albums)
     try {
       this.constructor.albums = JSON.parse(albums);
     } catch (e) {
       this.constructor.albums = [];
     }
+    console.log("saveAlbums.after", this.constructor.albums)
     this.constructor.loaded = true;
   }
 
@@ -56,11 +58,10 @@ class Album {
       if (err) {
         return console.log(err);
       }
+      console.log(albums)
       _this.saveAlbums(albums);
     })
   };
 }
 
-module.exports = function (album, song) {
-  return new Album();
-}
+module.exports = Album;
