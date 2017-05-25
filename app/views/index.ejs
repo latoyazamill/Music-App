@@ -16,7 +16,7 @@
             <%= artist.name %>
           </a>
         </p>
-        <p>#of Albums:
+        <p>Albums:
           <%= artist.albumCount %>
         </p>
         <p>Genre:
@@ -25,9 +25,7 @@
       </div>
 
       <div class="col s12 m2 l2">
-        <% for (var i=0; i < 5; i++) { %>
-            <i class="fa fa-star yellow-text" aria-hidden="true"></i>
-            <% } %>
+        <%- include shared/ratings %>
       </div>
 
     </div>
