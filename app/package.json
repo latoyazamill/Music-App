@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "dependencies": {
     "ejs": "^2.5.6",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "nodeman": "^1.1.2"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
