@@ -1,13 +1,26 @@
 {
-  "name": "Music App",
-  "version": "0.0.1",
+  "name": "music-app",
+  "version": "1.0.0",
+  "description": "Init #3: Hello, Web Servers",
+  "main": "server.js",
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.3",
-    "moment": "^2.18.1",
-    "nodeman": "^1.1.2"
+    "moment": "^2.18.1"
   },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoCodingGenius/Music-App.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NoCodingGenius/Music-App/issues"
+  },
+  "homepage": "https://github.com/NoCodingGenius/Music-App#readme"
 }
