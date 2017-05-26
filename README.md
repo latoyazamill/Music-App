@@ -1,6 +1,13 @@
 # Music-App
 Init #3: Hello, Web Servers
 
+#Installation Instructions
+
+1. Make a new directory
+2. Change into the directory "Music-App"
+3. Run command npm-install --save
+4. Run command node server
+
 # Specifications
 
 These are the basic specs for “Hello, Web Servers”, broken into 5 stages. If you complete these specs, try taking on some of the Stretch specs.
@@ -29,20 +36,20 @@ At this point, you don’t need to actually show any real data, just render HTML
 
 - [x]  EJS is installed and set up for HTML templating
 - [x] View template files are created in the /views subdirectory
-- [ ] Main view file is called views/index.ejs
-- [ ] Main view is rendered at route /
+- [x] Main view file is called views/index.ejs
+- [x] Main view is rendered at route /
 - [x] Main view shows a list of all artists (see wireframe)
 - [x] Albums view file is called views/albums.ejs
-- [ ] Albums view is rendered at route /albums
+- [x] Albums view is rendered at route /albums
 - [x] Albums view shows a list of all albums (see wireframe)
 - [x] Songs view file is called views/songs.ejs
-- [ ] Songs view is rendered at route /songs
+- [x] Songs view is rendered at route /songs
 - [x] Songs view shows a list of all songs (see wireframe)
 - [x] Individual artist view file is called views/artist.ejs
-- [ ] Individual artist view is rendered at route /artists/:artist_id
+- [x] Individual artist view is rendered at route /artists/:artist_id
 - [x] Individual artist view shows a list of the artist’s albums (see wireframe)
-- [ ] Individual album view file is called views/album.ejs
-- [ ] Individual album view is rendered at route /albums/:album_id
+- [x] Individual album view file is called views/album.ejs
+- [x] Individual album view is rendered at route /albums/:album_id
 - [x] Individual album view shows a list of the album’s songs (see wireframe)
 - [x] CSS is organized into one or more files in the public/ directory
 - [x] CSS declarations are well-named and formatted (consider using this small guide)
