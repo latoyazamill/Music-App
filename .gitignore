@@ -48,5 +48,4 @@ fabric.properties
 .idea/
 *.iml
 !/.gitignore
-app/node_modules
-
+node_modules
