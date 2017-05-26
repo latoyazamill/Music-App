@@ -1,0 +1,25 @@
+.circle.photo {
+  width: 150px;
+  height: 150px;
+}
+
+.circle {
+  width: 110px;
+  height: 110px;
+}
+
+.artist-image {
+  widht: 110px;
+  height: 110px;
+}
+
+.about-pic {
+  width: 125px;
+  height: 125px;
+  margin-right: 10px;
+  border: 1px solid #CCCCCC;
+}
+
+.about-author {
+  margin-bottom: 10px;
+}
