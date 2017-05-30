@@ -1,9 +1,0 @@
-[
-  { "id": 1, "name": "D'Angelo", "genre": "Neo-Soul" , "image" : "http://i368.photobucket.com/albums/oo126/theybf/DECEMBER%202011/a819ca23.jpg"},
-  { "id": 2, "name": "Horse Feathers", "genre": "Folk", "image": "http://cdn.baeblemusic.com/images/miscvideos/horse_feathers/horse_feathers_1-332.jpg" },
-  { "id": 3, "name": "Lauryn Hill", "genre": "Hip Hop", "image": "http://sites.psu.edu/ccrutchfieldpassionblog/wp-content/uploads/sites/16623/2014/09/lauryn_hill_2.jpg" },
-  { "id": 4, "name": "M.I.A.", "genre": "Hip Hop", "image": "http://saintheron.com/wp-content/uploads/2016/04/photo_mia_300rgb-1-_danielsannwald_wide-b955b978d57da9c87a76ab14bc183a7a1863cd0b.jpg" },
-  { "id": 5, "name": "Radiohead", "genre": "Electronic Rock", "image": "http://ksassets.timeincuk.net/wp/uploads/sites/55/2015/09/2014Radiohead_Getty76188172250214-1.jpg" },
-  { "id": 6, "name": "Santogold", "genre": "Alternative Hip Hop", "image": "http://www.idolator.com/wp-content/uploads/sites/10/2016/02/santigold-2015-promo-620x413.jpg" },
-  { "id": 7, "name": "TV On The Radio", "genre": "Rock", "image": "http://static.spin.com/files/141117-tv-on-the-radio-seeds.ong_.jpeg" }
-]
