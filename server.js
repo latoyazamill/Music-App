@@ -4,14 +4,12 @@ var app = express();
 // load models and load data
 var Artist = require('./model/artist');
 var artist = new Artist();
-console.log("Artist", artist.getArtists())
-return;
 
-artist.loadAll();
 
 var Album = require('./model/album');
 var album = new Album();
 album.loadAll();
+
 
 var Song = require('./model/song');
 var song = new Song();
@@ -27,8 +25,11 @@ app.use('/about', about);
 var artists = require('./routes/artists')(artist, album, song);
 app.use('/', artists);
 
-var artists_api = require('./routes/api/artists');
-app.use('/artists', artists_api);
+var artists_api = require('./routes/api/artists')(Artist);
+app.use('/api/artists', artists_api);
+
+var artist_api = require('./routes/api/artist')(Artist);
+app.use('/api/artist', artist_api);
 
 var albums = require('./routes/albums')(artist, album, song);
 app.use('/albums', albums);
