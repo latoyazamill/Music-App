@@ -62,14 +62,14 @@ Use the fake data set provided.
 
 - [x] Main view (/) shows all artists from the fake artists data.
 - [x] Main view shows artist name and genre.
-- [ ] Artist name on main view links to the artist view (/artists/:artist_id).
+- [x] Artist name on main view links to the artist view (/artists/:artist_id).
 - [x] Album list view (/albums) shows all albums from the fake album data.
 - [x] Album list view shows the name of the artist for each album.
-- [ ] Album name on album list view links to the album view (/albums/:album_id).
-- [ ] Artist name on album list view links to the artist view (/artists/:artist_id).
+- [x] Album name on album list view links to the album view (/albums/:album_id).
+- [x] Artist name on album list view links to the artist view (/artists/:artist_id).
 - [x] Song list view (/songs) shows all songs from the fake song data.
 - [x] Song list view shows song title, artist, album, and song length in seconds.
-- [ ] Artist view (/artists/:artist_id) shows all albums for the artists with id :artist_id from the fake artist data. Hint: you can filter the albums by their artist_id property.
+- [x] Artist view (/artists/:artist_id) shows all albums for the artists with id :artist_id from the fake artist data. Hint: you can filter the albums by their artist_id property.
 - [x] Artist view shows artist name and genre.
 - [x] Artist view shows each album title and year released.
 - [x] Album names on artist view links to the album view (/albums/:album_id).
@@ -99,14 +99,14 @@ Refactor and improve the organization of your code. Use EJS’s “includes” f
 - [x] All views use an include for the header nav (with links to “Artists”, “Albums” and “Songs”).
 - [x] Header nav include is kept in the file views/layout/header.ejs.
 - [x] Main view (/) uses an artist list item include for each artist.
-- [ ] Artists list item include is kept in the file views/artists/list_item.ejs.
-- [ ] Albums list view (/albums) uses an album list item include for each album.
-- [ ] Albums list item include is kept in the file views/albums/list_item.ejs.
-- [ ] Songs list view (/songs) uses a song list item include for each song.
-- [ ] Songs list item include is kept in the file views/songs/list_item.ejs.
-- [ ] Artist view (/artists/:artist_id) uses an artist album include for each album.
-- [ ] Artist album include is kept in the file views/artists/album.ejs.
-- [ ] Album view (/albums/:album_id) uses an album song for each album.
-- [ ] Album song include is kept in the file views/albums/song.ejs.
+- [x] Artists list item include is kept in the file views/artists/list_item.ejs.
+- [x] Albums list view (/albums) uses an album list item include for each album.
+- [x] Albums list item include is kept in the file views/albums/list_item.ejs.
+- [x] Songs list view (/songs) uses a song list item include for each song.
+- [x] Songs list item include is kept in the file views/songs/list_item.ejs.
+- [x] Artist view (/artists/:artist_id) uses an artist album include for each album.
+- [x] Artist album include is kept in the file views/artists/album.ejs.
+- [x] Album view (/albums/:album_id) uses an album song for each album.
+- [x] Album song include is kept in the file views/albums/song.ejs.
 
 If you finish early, move into stretch specs, or use the extra time to polish up your code.
